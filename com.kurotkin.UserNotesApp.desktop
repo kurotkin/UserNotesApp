@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=com.kurotkin.UserNotesApp
+Exec=/usr/bin/com.kurotkin.UserNotesApp
+Name=User Notes
+Name[ru]=Заметки пользователя
+
+[X-Application]
+Permissions=
+OrganizationName=com.kurotkin
+ApplicationName=UserNotesApp
+ExecDBus=/usr/bin/com.kurotkin.UserNotesApp
