@@ -5,18 +5,43 @@ Page {
     objectName: "mainPage"
     allowedOrientations: Orientation.All
 
-    PageHeader {
-        objectName: "pageHeader"
-        title: qsTr("User Notes")
-        extraContent.children: [
-            IconButton {
-                objectName: "aboutButton"
-                icon.source: "image://theme/icon-m-about"
-                anchors.verticalCenter: parent.verticalCenter
-
-                onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+    SilicaListView {
+        anchors.fill: parent
+        header: PageHeader {
+            objectName: "pageHeader"
+            title: qsTr("Заметки")
+            extraContent.children: [
+                IconButton {
+                    objectName: "aboutButton"
+                    icon.source: "image://theme/icon-m-about"
+                    anchors.verticalCenter: parent.verticalCenter
+                    onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
+                }
+            ]
+        }
+        model: ListModel { id: noteModel }
+        delegate: ListItem {
+            Column{
+                Label {
+                    text: "Создан: " + date
+                    font.pixelSize: Theme.fontSizeExtraSmall
+                }
+                Label {
+                    text: note
+                }
             }
-        ]
+        }
+        PullDownMenu {
+            MenuItem {
+                text: "Добавить заметку"
+                onClicked: {
+                    var dialog = pageStack.push("NoteDialog.qml")
+                    dialog.accepted.connect(function() { noteModel.append(
+                        {note: dialog.noteText, date: Qt.formatDateTime(new Date(), "hh:mm dd.MM.yyyy")}
+                    )})
+                }
+            }
+        }
     }
 
 

@@ -42,9 +42,9 @@
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/pages/MainPage.qml" line="10"/>
-        <source>User Notes</source>
-        <translation>User Notes</translation>
+        <location filename="../qml/pages/MainPage.qml" line="12"/>
+        <source>Заметки</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
