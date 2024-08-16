@@ -11,6 +11,7 @@ SOURCES += \
 HEADERS += \
 
 DISTFILES += \
+    qml/pages/Dao.qml \
     qml/pages/NoteDialog.qml \
     rpm/com.kurotkin.UserNotesApp.spec \
 

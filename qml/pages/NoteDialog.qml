@@ -3,16 +3,35 @@ import Sailfish.Silica 1.0
 
 Dialog {
     property var noteText
+    property var noteDateTime
 
-    DialogHeader {
-        acceptText: "Сохранить"
-        cancelText: "Отменить"
+    Column {
+        width: parent.width
+        DialogHeader {
+            acceptText: "Сохранить"
+            cancelText: "Отменить"
+        }
+
+        TextArea {
+            id: noteArea
+            placeholderText: "Заметка"
+            label: "Заметка"
+        }
+
+        TextArea {
+            id: noteDate
+            placeholderText: "Дата и время"
+            label: "Дата и время"
+        }
     }
-    TextArea {
-        id: noteArea
-        anchors.centerIn: parent
-        placeholderText: "Заметка"
-        label: "Заметка"
+
+    onAccepted: {
+       noteText = noteArea.text;
+       noteDateTime = noteDate.text;
     }
-    onAccepted: noteText = noteArea.text
+
+    Component.onCompleted: {
+        noteArea.text = noteText;
+        noteDate.text = noteDateTime;
+    }
 }
