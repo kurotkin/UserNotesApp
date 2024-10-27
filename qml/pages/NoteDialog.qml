@@ -8,20 +8,20 @@ Dialog {
     Column {
         width: parent.width
         DialogHeader {
-            acceptText: "Сохранить"
-            cancelText: "Отменить"
+            acceptText: qsTr("Save")
+            cancelText: qsTr("Cancel")
         }
 
         TextArea {
             id: noteArea
-            placeholderText: "Заметка"
-            label: "Заметка"
+            placeholderText: qsTr("Note")
+            label: qsTr("Note")
         }
 
         TextArea {
             id: noteDate
-            placeholderText: "Дата и время"
-            label: "Дата и время"
+            placeholderText: qsTr("Date and Time")
+            label: qsTr("Date and Time")
         }
     }
 

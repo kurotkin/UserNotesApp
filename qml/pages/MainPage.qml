@@ -11,7 +11,7 @@ Page {
         anchors.fill: parent
         header: PageHeader {
             objectName: "pageHeader"
-            title: qsTr("Заметки")
+            title: qsTr("Notes")
         }
         model: ListModel { id: noteModel }
         delegate: ListItem {
@@ -44,7 +44,7 @@ Page {
                     rightMargin: Theme.horizontalPageMargin
                 }
                 Label {
-                    text: "Создан: " + create_date
+                    text: qsTr("Created") + create_date
                     font.pixelSize: Theme.fontSizeExtraSmall
                 }
                 Label {
@@ -57,7 +57,7 @@ Page {
         }
         PullDownMenu {
             MenuItem {
-                text: "Добавить заметку"
+                text: qsTr("Add note")
                 onClicked: {
                     var dialog = pageStack.push("NoteDialog.qml");
                     dialog.accepted.connect(function() {
